@@ -1,2 +1,2 @@
-REST API to control surveys  
+REST Service to control surveys  
 study project at TPU 2023
