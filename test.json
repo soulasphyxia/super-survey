@@ -1,0 +1,20 @@
+{
+  "surveys":[
+    {"id": 1,
+      "startDate": "16-05-2023",
+      "endDate": "25-05-2023",
+      "activity": 1,
+      "questions": [
+        {"orderId": 1,"text": "What is your name?"},
+        {"orderId": 2,"text": "What is your age?"}
+      ]},
+    {"id": 2,
+      "startDate": "10-01-2023",
+      "endDate": "29-06-2023",
+      "activity": 1,
+      "questions": [
+        {"orderId": 1,"text": "Do you like your university?"},
+        {"orderId": 2,"text": "Select option 1-5 to rate the quality of the survey."}
+      ]}
+  ]
+}
