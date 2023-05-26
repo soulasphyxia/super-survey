@@ -25,6 +25,6 @@ public class SurveyService {
     }
 
     public void deleteSurvey(Survey id) {
-        System.out.println("Survey was deleted successfull");
+        System.out.println("Survey was deleted successfully");
     }
 }
