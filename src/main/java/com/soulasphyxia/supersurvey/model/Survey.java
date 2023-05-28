@@ -10,13 +10,14 @@ public class Survey {
     private ArrayList<Question> listOfQuestions = new ArrayList<>();
     private Date startDate;
     private Date endDate;
-    private boolean activity;
+    private Boolean activity;
     @Data
     static
     class Question{
-        private String text;
         private Long orderId;
-        private Long surveyId;
+        private String text;
     }
+
+
 
 }

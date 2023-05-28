@@ -34,7 +34,7 @@ public class SurveyController {
     @ExceptionHandler(IllegalArgumentException.class)
     public String handle(IllegalArgumentException e) {
         log.error(e.getMessage());
-        return "Something went wrong";
+        return "Something went wron";
     }
 
 }

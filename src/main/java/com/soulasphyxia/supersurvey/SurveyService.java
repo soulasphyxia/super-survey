@@ -20,7 +20,7 @@ public class SurveyService {
         System.out.println("Survey was added successfully");
     }
 
-    public void editSurvey(Survey id) {
+    public void editSurvey(Survey survey) {
         System.out.println("Survey was edited successfully");
     }
 
