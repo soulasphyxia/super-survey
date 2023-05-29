@@ -23,9 +23,13 @@ public class SurveyRepository {
         }
     }
 
-    public void delete(Survey survey)
+    public Survey getSurveyFromId(int id) {
+        return storage.stream().filter(x -> x.getId() == id).toList().get(0);
+    }
+
+    public void delete(Long id)
     {
-        storage.remove(survey);
+        storage.remove(id.intValue()-1);
     }
 
 }
