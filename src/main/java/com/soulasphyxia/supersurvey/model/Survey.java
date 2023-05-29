@@ -1,23 +1,18 @@
 package com.soulasphyxia.supersurvey.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 @Data
+@AllArgsConstructor
 public class Survey {
-    private ArrayList<Question> listOfQuestions = new ArrayList<>();
-    private Date startDate;
-    private Date endDate;
-    private Boolean activity;
-    @Data
-    static
-    class Question{
-        private Long orderId;
-        private String text;
-    }
-
-
-
+      private int id;
+      private String name;
+      //private String startDate;
+      //private String endDate;
+      private ArrayList<Question> listOfQuestions;
+      //private Boolean activity;
 }

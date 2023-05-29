@@ -12,19 +12,19 @@ public class SurveyService {
     private final SurveyRepository repository;
 
     public ArrayList<Survey> getAllSurveys() {
-        System.out.println("All Surveys");
-        return new ArrayList<>();
+        System.out.println("All Surveys: ");
+        return repository.getAllSurveys();
     }
 
-    public void addSurvey(Survey id) {
+    public void addSurvey(Survey survey) {
+        repository.save(survey);
         System.out.println("Survey was added successfully");
     }
 
-    public void editSurvey(Survey survey) {
-        System.out.println("Survey was edited successfully");
-    }
+    public void editSurvey(Survey survey) {}
 
-    public void deleteSurvey(Survey id) {
+    public void deleteSurvey(Survey survey) {
+        repository.delete(survey);
         System.out.println("Survey was deleted successfully");
     }
 }
