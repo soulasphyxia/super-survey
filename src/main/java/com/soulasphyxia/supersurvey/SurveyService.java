@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class SurveyService {
     private final SurveyRepository repository;
 
-    public ArrayList<Survey> getAllSurveys() {
+    public ArrayList<Survey> getAllSurveys(String filter) {
+        if(filter == null) return repository.getAllSurveys();
         return repository.getAllSurveys();
     }
 
@@ -19,11 +20,12 @@ public class SurveyService {
         repository.save(survey);
     }
 
-    public void editSurvey(Survey survey, Long id) {
-        Survey oldSurvey = repository.getSurveyFromId(id.intValue());
+    public void editSurvey(Survey survey) {
+        repository.edit(survey);
+
     }
 
-    public void deleteSurvey(Long id) {
+    public void deleteSurvey(int id) {
         repository.delete(id);
 
     }

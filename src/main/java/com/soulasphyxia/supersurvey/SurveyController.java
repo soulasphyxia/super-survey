@@ -6,15 +6,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 @Slf4j
-@RestController("/survey")
+@RestController
 @AllArgsConstructor
 public class SurveyController {
     private final SurveyService surveyService;
 
     @GetMapping("/all")
-    public ArrayList<Survey> getAllSurveys() {
-        log.debug("Got all surveys!");
-        return surveyService.getAllSurveys();
+    public ArrayList<Survey> getAllSurveys(@RequestParam(required = false) String filter) {
+        System.out.println(filter);
+        return surveyService.getAllSurveys(filter);
     }
 
     @PostMapping("/add")
@@ -23,21 +23,15 @@ public class SurveyController {
         log.debug("Survey was added successful");
     }
 
-    @PostMapping("/edit")
-    public void editSurvey(@RequestBody Survey survey,@RequestParam(value="surveyId")String stringSurveyId) {
-        try{
-            Long surveyId = Long.parseLong(stringSurveyId);
-            surveyService.editSurvey(survey,surveyId);
-            log.debug("Survey was deleted successful");
-        }catch(Exception e) {
-            throw new IllegalArgumentException();
-        }
+    @PutMapping("/edit")
+    public void editSurvey(@RequestBody Survey survey) {
+        surveyService.editSurvey(survey);
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public void deleteSurvey(@RequestParam(value = "surveyId") String stringSurveyId) {
         try{
-            Long surveyId = Long.parseLong(stringSurveyId);
+            int surveyId = Integer.parseInt(stringSurveyId);
             surveyService.deleteSurvey(surveyId);
             log.debug("Survey was deleted successful");
         }catch(Exception e) {

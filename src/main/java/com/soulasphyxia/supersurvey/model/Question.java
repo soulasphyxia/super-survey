@@ -8,5 +8,6 @@ import lombok.Data;
 public class Question {
     private Long orderId;
     private String text;
+    //private Long surveyId;
 
 }

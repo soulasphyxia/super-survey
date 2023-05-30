@@ -10,7 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class Survey {
       private int id;
-      private String name;
+      //private String name;
       //private String startDate;
       //private String endDate;
       private ArrayList<Question> listOfQuestions;
