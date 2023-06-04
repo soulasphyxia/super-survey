@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public class SurveyRepository {
-    ArrayList<Survey> storage = new ArrayList<>(List.of(new Survey(1,new ArrayList<>(List.of(new Question(1L,"What's your name?"),new Question(2L,"How old are you?")))),new Survey(2,new ArrayList<>(List.of(new Question(1L,"2+2=?"),new Question(2L,"2+2*2?"))))));
+    ArrayList<Survey> storage = new ArrayList<>(List.of(new Survey(1,"survey",new ArrayList<>(List.of(new Question(1L,"What's your name?"),new Question(2L,"How old are you?")))),new Survey(2,"asurvey",new ArrayList<>(List.of(new Question(1L,"2+2=?"),new Question(2L,"2+2*2?"))))));
 
     public ArrayList<Survey> getAllSurveys() {
         return new ArrayList<>(List.copyOf(storage));
@@ -20,6 +20,10 @@ public class SurveyRepository {
 
     public Survey getSurveyFromId(int id) {
         return storage.stream().filter(x -> x.getId() == id).toList().get(0);
+    }
+
+    public boolean containsSurveyWithId(int id) {
+        return storage.stream().anyMatch(x -> x.getId() == id);
     }
 
 

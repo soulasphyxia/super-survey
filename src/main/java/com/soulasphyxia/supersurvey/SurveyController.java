@@ -10,11 +10,11 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class SurveyController {
     private final SurveyService surveyService;
-
     @GetMapping("/all")
-    public ArrayList<Survey> getAllSurveys(@RequestParam(required = false) String filter) {
-        System.out.println(filter);
-        return surveyService.getAllSurveys(filter);
+    public ArrayList<Survey> getAllSurveys(@RequestParam(value="sort") String sort,
+                                           @RequestParam(required = false) String filter) {
+
+        return surveyService.getAllSurveys(sort);
     }
 
     @PostMapping("/add")
@@ -44,5 +44,6 @@ public class SurveyController {
         log.error(e.getMessage());
         return "Something went wrong";
     }
+
 
 }
