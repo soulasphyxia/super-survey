@@ -1,18 +1,33 @@
 package com.soulasphyxia.supersurvey.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
-@Data
+@Entity
 @AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Table(name="survey")
+
 public class Survey {
+      @Id
+      @GeneratedValue(strategy = GenerationType.IDENTITY)
+      @Column(name="id")
       private int id;
       private String name;
-      //private String startDate;
-      //private String endDate;
-      private ArrayList<Question> listOfQuestions;
-      //private Boolean activity;
+      @Column(name="start_date")
+      private String startDate;
+      @Column(name="end_date")
+      private String endDate;
+      private Boolean activity;
+
+      @OneToMany
+      @JoinColumn(name="survey_id")
+      private List<Question> questions;
+
+
 }

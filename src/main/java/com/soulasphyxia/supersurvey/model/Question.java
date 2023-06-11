@@ -1,13 +1,25 @@
 package com.soulasphyxia.supersurvey.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@Data
+@Entity
 @AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Table(name="questions")
+
 public class Question {
-    private Long orderId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int question_id;
     private String text;
-    //private Long surveyId;
+    @Column(name="order")
+    private Long order;
+    @Column(name="survey_id")
+    private Long surveyId;
+
 
 }
