@@ -8,7 +8,7 @@ databaseChangeLog:
             tableName: survey
             columns:
               - column:
-                  name: id
+                  name: survey_id
                   type: BIGINT
                   autoIncrement: true
                   constraints:
@@ -18,16 +18,15 @@ databaseChangeLog:
                   name: name
                   type: varchar(255)
                   constraints:
-                    unique: true
                     nullable: false
               - column:
                   name: start_date
-                  type: varchar(255)
+                  type: date
                   constraints:
                     nullable: false
               - column:
                   name: end_date
-                  type: varchar(255)
+                  type: date
                   constraints:
                     nullable: false
               - column:
@@ -47,10 +46,10 @@ databaseChangeLog:
                   value: "Arithmetical survey"
               - column:
                   name: start_date
-                  value: "11-05-2023"
+                  value: "2023-05-11"
               - column:
                   name: end_date
-                  value: "23-05-2023"
+                  value: "2023-05-23"
               - column:
                   name: activity
                   value: "true"
@@ -62,10 +61,10 @@ databaseChangeLog:
                   value: "Meeting survey"
               - column:
                   name: start_date
-                  value: "11-05-2023"
+                  value: "2023-06-01"
               - column:
                   name: end_date
-                  value: "23-05-2023"
+                  value: "2023-06-25"
               - column:
                   name: activity
                   value: "false"
@@ -87,10 +86,9 @@ databaseChangeLog:
                   name: text
                   type: varchar(255)
                   constraints:
-                    unique: true
                     nullable: false
               - column:
-                  name: order
+                  name: order_id
                   type: BIGINT
                   constraints:
                     nullable: false
@@ -98,9 +96,8 @@ databaseChangeLog:
                   name: survey_id
                   type: BIGINT
                   constraints:
-                    nullable: false
                     foreignKeyName: fk_questions_survey_id
-                    references: survey(id)
+                    references: survey(survey_id)
   - changeSet:
       id: 4
       author: survey_db
@@ -112,7 +109,7 @@ databaseChangeLog:
                   name: text
                   value: "2+2=?"
               - column:
-                  name: order
+                  name: order_id
                   value: 1
               - column:
                   name: survey_id
@@ -124,7 +121,7 @@ databaseChangeLog:
                   name: text
                   value: "What's your age?"
               - column:
-                  name: order
+                  name: order_id
                   value: 2
               - column:
                   name: survey_id
@@ -136,7 +133,7 @@ databaseChangeLog:
                   name: text
                   value: "5*5=?"
               - column:
-                  name: order
+                  name: order_id
                   value: 2
               - column:
                   name: survey_id
@@ -148,7 +145,7 @@ databaseChangeLog:
                   name: text
                   value: "What's your name?"
               - column:
-                  name: order
+                  name: order_id
                   value: 1
               - column:
                   name: survey_id

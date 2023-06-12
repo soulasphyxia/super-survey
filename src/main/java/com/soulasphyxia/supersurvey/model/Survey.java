@@ -1,9 +1,7 @@
 package com.soulasphyxia.supersurvey.model;
-
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -16,17 +14,17 @@ import java.util.List;
 public class Survey {
       @Id
       @GeneratedValue(strategy = GenerationType.IDENTITY)
-      @Column(name="id")
-      private int id;
+      @Column(name="survey_id")
+      private Long id;
       private String name;
       @Column(name="start_date")
-      private String startDate;
+      private LocalDate startDate;
       @Column(name="end_date")
-      private String endDate;
+      private LocalDate endDate;
       private Boolean activity;
 
-      @OneToMany
-      @JoinColumn(name="survey_id")
+      @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+      @JoinColumn(name = "survey_id")
       private List<Question> questions;
 
 
