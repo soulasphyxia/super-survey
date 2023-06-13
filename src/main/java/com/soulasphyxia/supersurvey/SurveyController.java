@@ -21,21 +21,34 @@ public class SurveyController {
 
     @GetMapping("/{id}")
     public Survey getSurvey(@PathVariable Long id) {
+        if(id == null) {
+            throw new IllegalArgumentException();
+        }
         return surveyService.getSurvey(id);
     }
 
+
     @PostMapping("/add")
     public void addSurvey(@RequestBody Survey survey) {
+        if(survey == null) {
+            throw  new IllegalArgumentException();
+        }
         surveyService.add(survey);
     }
 
     @PutMapping("/edit/{id}")
     public void editSurvey(@PathVariable Long id,@RequestBody Survey survey) {
+        if(id == null || survey == null) {
+            throw new IllegalArgumentException();
+        }
         surveyService.edit(id,survey);
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteSurvey(@PathVariable Long id) {
+        if(id == null) {
+            throw new IllegalArgumentException();
+        }
         surveyService.delete(id);
     }
 
