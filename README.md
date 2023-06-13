@@ -10,12 +10,12 @@
 ```
 git clone git@github.com:soulasphyxia/super-survey.git
 ```
-2.  Перейти в директорию `/src/main/resources/` и указать в `application.properties` поля для инициализации базы данных `spring.database.url`,`spring.datasource.username` и `spring.datauser.password`
-3.  Собрать проект с помощью Maven
+### 2.  Перейти в директорию `/src/main/resources/` и указать в `application.properties` поля для инициализации базы данных `spring.database.url`,`spring.datasource.username` и `spring.datauser.password`
+### 3.  Собрать проект с помощью Maven
 ```
 mvn clear install
 ```
-4. Запустить проект через созданный архив в директории `/target`
+### 4. Запустить проект через созданный архив в директории `/target`
 ```
 java -jar super-survey-0.0.1-SNAPSHOT.jar 
 ```
