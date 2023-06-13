@@ -77,7 +77,6 @@ public class SurveyService {
      */
     public void delete(Long id) {
         Survey surveyToDelete = getSurvey(id);
-        repository.getById(id);
         repository.delete(surveyToDelete);
     }
 
