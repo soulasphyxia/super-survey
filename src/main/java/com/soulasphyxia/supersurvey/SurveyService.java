@@ -15,6 +15,14 @@ import java.util.stream.Collectors;
 public class SurveyService {
     private final SurveyRepository repository;
 
+    /**
+     *Возвращает список всех опросов с заданной сортировкой и/или фильтром с параметром.
+     * @param sort возможна по названию, начальной дате и id по умолчанию.
+     * @param name фильтр по названию опроса
+     * @param startDate фильтр по начальной дате
+     * @param activity фильтр по активности
+     * @return список опросов
+     */
     public List<Survey> getAllSurveys(String sort,String name, String startDate,String activity) {
         List<Survey> surveys;
         if(name != null) {
@@ -42,22 +50,42 @@ public class SurveyService {
         return surveys;
     }
 
+
+    /**
+     * Добавление опроса в репозиторий
+     * @param survey переданый опрос
+     */
     public void add(Survey survey) {
         survey.getQuestions().forEach(x -> x.setSurveyId(x.getSurveyId()));
         repository.save(survey);
     }
 
+    /**
+     * Редактирование опроса с заданным id
+     * @param id идентификатор опроса
+     * @param survey новый опрос
+     */
     public void edit(Long id,Survey survey) {
         Survey surveyToEdit = getSurvey(id);
         survey.setId(surveyToEdit.getId());
         add(survey);
     }
 
+    /**
+     * Удаление опроса с переданным id
+     * @param id идентификатор опроса
+     */
     public void delete(Long id) {
         Survey surveyToDelete = getSurvey(id);
+        repository.getById(id);
         repository.delete(surveyToDelete);
     }
 
+    /**
+     * Возвращает опрос с переданным id из репозитория
+     * @param id идентификатор опроса
+     * @return опрос с переданным id
+     */
     public Survey getSurvey(Long id) {
         Optional<Survey> optionalSurvey = repository.findById(id);
         try {
