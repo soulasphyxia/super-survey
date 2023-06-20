@@ -66,7 +66,7 @@ public class SurveyService {
      * @param survey новый опрос
      */
     public void edit(Long id,Survey survey) {
-        if(repository.existById(id)) {
+        if(repository.existsById(id)) {
             survey.setId(id);
             add(survey);
         } else {
