@@ -66,9 +66,12 @@ public class SurveyService {
      * @param survey новый опрос
      */
     public void edit(Long id,Survey survey) {
-        Survey surveyToEdit = getSurvey(id);
-        survey.setId(surveyToEdit.getId());
-        add(survey);
+        if(repository.existById(id)) {
+            survey.setId(id);
+            add(survey);
+        } else {
+            throw new NullPointerException();
+        }
     }
 
     /**
